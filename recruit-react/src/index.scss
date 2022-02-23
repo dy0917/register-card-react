@@ -1,1 +1,6 @@
 @import '~bootstrap/scss/bootstrap.scss';
+@import '~react-datepicker/dist/react-datepicker.css';
+
+.custom-date-input {
+  border: 1px inset black;
+}

@@ -8,7 +8,7 @@ import library from './Components/fontawesome';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Card />
+    <Card name="Kingsley"/>
   </React.StrictMode>,
   document.getElementById('root')
 );
