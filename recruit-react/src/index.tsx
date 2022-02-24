@@ -1,29 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import App from './Components/App';
 import Card from './Pages/Card';
 import Menu from './Pages/Menu';
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
+import {store} from './store'
+import { Provider } from 'react-redux'
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-    <Routes>
-          <Route path="/" element={<Card name="Kingsley"/>}>
+    <Provider store={store}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Card name="Kingsley" />}>
           </Route>
-          <Route path="/menu" element={<Menu/>}>
-           
+          <Route path="/menu" element={<Menu />}>
+
           </Route>
         </Routes>
-    </Router>
- 
+      </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
