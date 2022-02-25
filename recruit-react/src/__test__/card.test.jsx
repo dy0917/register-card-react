@@ -1,4 +1,4 @@
-import { render, fireEvent, screen, act } from '../tools/test-utils'
+import { render, fireEvent, screen, act, container } from '../tools/test-utils'
 import CardForm from "../Components/CardForm";
 
 
@@ -10,25 +10,25 @@ describe("CardForm", () => {
   });
 
   test("hook fail", async () => {
-    act(() => {
-      render(<CardForm />);
-    });
+
+    const { container } = render(<CardForm />);
+
     fireEvent.input(screen.getByPlaceholderText("Credit card number"), {
       target: {
         value: "12312312312"
       }
     });
+
     const submit = screen.getByText(/Submit/i);
     await act(async () => {
       await fireEvent.submit(submit);
     });
 
-    expect(await screen.queryAllByText(/Card added/i)).toHaveLength(0);
+    expect(container.getElementsByClassName('is-invalid').length).toBe(2);
   });
 
   test("hook seccuss", async () => {
-    render(<CardForm />);
-    // screen.getByLabelText("Submit");
+    const { container } = render(<CardForm />);
     const submit = screen.getByText(/Submit/i);
 
 
@@ -51,8 +51,7 @@ describe("CardForm", () => {
     await act(async () => {
       await fireEvent.submit(submit);
     });
-
-    expect(await screen.findByText(/Card added/i)).toBeInTheDocument()
+    expect(container.getElementsByClassName('is-invalid').length).toBe(0);
 
   });
 });
