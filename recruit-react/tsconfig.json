@@ -23,5 +23,5 @@
   },
   "include": [
     "src"
-  ]
+, "fontawesome.ts", "../jest-setup.ts"  ]
 }

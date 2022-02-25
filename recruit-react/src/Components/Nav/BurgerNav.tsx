@@ -8,7 +8,8 @@ import {
 function Burger() {
     const navigate = useNavigate();
     return (
-        <Row>
+        <Container>
+              <Row>
             <Col md={{ span: 4, offset: 4 }} className=" nav-border-bottom">
                 <Navbar>
                     <button className='btn btn-sm' onClick={() => {
@@ -23,6 +24,8 @@ function Burger() {
                 </Navbar>
             </Col>
         </Row>
+        </Container>
+      
     )
 }
 
