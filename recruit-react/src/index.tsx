@@ -6,6 +6,7 @@ import Card from './Pages/Card';
 import Menu from './Pages/Menu';
 import {
   BrowserRouter as Router,
+  HashRouter,
   Routes,
   Route
 } from "react-router-dom";
@@ -17,7 +18,7 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Card />} >
       
@@ -26,7 +27,7 @@ ReactDOM.render(
 
           </Route>
         </Routes>
-      </Router>
+      </HashRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
